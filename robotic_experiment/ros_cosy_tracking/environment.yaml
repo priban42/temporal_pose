@@ -1,0 +1,26 @@
+channels:
+  - conda-forge
+  - pytorch
+  - nvidia
+  - anaconda
+  - defaults
+dependencies:
+  # Happypose
+  - nvidia::cudatoolkit==11.3.1
+  - python=3.9
+  - pip
+  - pytorch::pytorch==1.11.0
+  - torchvision==0.12.0
+  - geckodriver
+  - firefox
+  - opencv
+  - pinocchio
+  # ros_cosy
+  - compilers 
+  - catkin_tools 
+  - ros-noetic-desktop 
+  - ros-noetic-realsense2-camera
+  - example-robot-data
+  - gtsam
+  - pip:
+    - panda-python

@@ -1,0 +1,11 @@
+# Define goal
+float64 max_runtime
+uint32 frequency
+float64 Kpt
+float64 Kpo
+---
+# Define the result
+uint32 res_var
+---
+# Define a feedback message
+uint32 fb_var

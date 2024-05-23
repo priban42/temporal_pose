@@ -1,0 +1,58 @@
+# initial setup:
+mamba activate ros_cosy_tracking
+source devel/setup.bash
+cd sandbox_mf/ws_ros_cosy_tracking/
+cd sandbox_mf/ws_ros_cosy_tracking/;mamba activate ros_cosy_tracking;source devel/setup.bash
+mamba activate ros_cosy_tracking;source devel/setup.bash
+
+## helper commands:
+conda info --envs
+pkill -9 python
+
+
+# camera launch
+roslaunch realsense2_camera rs_camera.launch color_width:=640 color_height:=480 color_fps:=60 serial_no:=105322250337
+
+rosrun image_view video_recorder _filename:="videos/test.avi" image:=tracksviz fps:=60
+
+
+# image viewing:
+rosrun image_view image_view image:=/camera/color/image_raw
+rqt
+realsense-viewer
+
+# panda control:
+cd src/ros_cosy_tracking
+source ./setup_env_var.sh
+rosrun ros_cosy_tracking panda_ctrl.py
+rosservice call /move_to_start
+rosservice call /disconnect_desk
+
+## helper commands:
+rosservice list
+
+# run tracking pipeline
+source ~/sandbox_mf/happypose/setup_envs.sh
+rosrun ros_cosy_tracking ros_cosycov.py
+
+source ~/sandbox_mf/happypose/setup_envs.sh
+rosrun ros_cosy_tracking ros_vizualize_cosy.py
+
+rosrun ros_cosy_tracking ros_gtsam_refactored.py
+
+rqt
+
+# make the robot follow the track:
+rosrun ros_cosy_tracking orchestrator.py
+
+
+
+
+# list serial numbers Realsense cameras
+rs-enumerate-devices | grep 'Serial'
+
+# in case there is an error from calera.launch after installing realsense conda package
+ln -s /home/imitlearn/miniconda3/envs/ros_panda_happy_gtsam/lib/libudev.so.1 /home/imitlearn/miniconda3/envs/ros_panda_happy_gtsam/lib/libudev.so.0
+
+
+'array([[ 5.75899381e-03,  9.64691370e-01, -2.63319946e-01,\n         1.46507892e-01],\n       [-9.99789820e-01,  3.73375221e-04, -2.04982251e-02,\n        -1.04707130e-02],\n       [-1.96761437e-02,  2.63382651e-01,  9.64490761e-01,\n        -1.60789316e-01],\n       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00,\n         1.00000000e+00]])'

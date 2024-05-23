@@ -1,0 +1,12 @@
+<launch>
+
+  <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+    <arg name="color_width" value="640"/>
+    <arg name="color_height" value="480"/>
+    <arg name="color_fps" value="30"/>
+    <arg name="serial_no" value="105322250337"/>
+  </include>
+
+  <node name="ros_cosy_cov" pkg="ros_cosy_tracking" type="ros_cosycov.py" />
+
+</launch>
