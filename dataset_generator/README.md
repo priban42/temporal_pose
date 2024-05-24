@@ -30,8 +30,6 @@ This tool is designed to generate datasets in the BOP format. It can produce RGB
 
 Use the `sample_trajectories.py` script to sample new trajectories.
 
-note that some of the parts of the dataset specified in the BOP format are not generated directly with this tool and the oficial bop_toolkit https://github.com/thodan/bop_toolkit can be used to provide those.
-
 ## Example Images
 
 ### Static Scene
