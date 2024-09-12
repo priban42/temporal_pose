@@ -1,6 +1,6 @@
 # BOP Dataset Generator
 
-This tool is designed to generate datasets in the BOP format. It can produce RGB images, depth images, and ground truth annotations for object poses. The tool has been tested with objects from the HOPE and YCB datasets.
+This tool is designed to generate datasets in the BOP format. It can produce RGB images, depth images, and ground truth annotations for object poses. The tool has been tested with objects from the HOPE and YCB datasets. Note that some parts of the dataset specified in the BOP format are not generated directly with this tool. The official [bop_toolkit](https://github.com/thodan/bop_toolkit) can be used to provide those missing parts.
 
 ## Features
 
