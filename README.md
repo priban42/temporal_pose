@@ -13,6 +13,9 @@ This folder contains the ROS package implemented to perform qualitative evaluati
 ### `sam`
 This folder contains the Python implementation of our method presented in the work.
 
+### `short_horizon`
+This folder contains the Python implementation of our short horizon method presented in the work.
+
 ## Usage
 
 For detailed instructions on how to use the scripts and packages, refer to the respective folders. Each folder contains a `README.md` file with specific information and instructions.
